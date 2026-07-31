@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>该影 icon — 专业级跨平台图标设计工作站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lobster&family=Pacifico&family=Bebas+Neue&family=Righteous&family=Comfortaa:wght@700&family=Orbitron:wght@700;900&family=Caveat:wght@700&family=Abril+Fatface&family=Press+Start+2P&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@700;900&family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/preview.css">
+<link rel="icon" id="dynFavicon" href="data:,">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-history" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.6" cy="8.6" r="1.4" class="f"/><circle cx="15.4" cy="15.4" r="1.4" class="f"/><circle cx="15.4" cy="8.6" r="1.4" class="f"/><circle cx="8.6" cy="15.4" r="1.4" class="f"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4.4 4.4 0 006.3 0l3-3a4.45 4.45 0 00-6.3-6.3l-1.7 1.7"/><path d="M13.5 10.5a4.4 4.4 0 00-6.3 0l-3 3a4.45 4.45 0 006.3 6.3l1.7-1.7"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.5A8.5 8.5 0 1110.5 3.5a7 7 0 0010 10z"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3.5v11m0 0l-4.5-4.5M12 14.5l4.5-4.5"/><path d="M4.5 20.5h15"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M8.5 14L4 9.5 8.5 5"/><path d="M4 9.5h10a6 6 0 016 6v.5"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M15.5 14L20 9.5 15.5 5"/><path d="M20 9.5H10a6 6 0 00-6 6v.5"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 9.5A8.5 8.5 0 1112 20.5a8.6 8.6 0 01-7-3.6"/><path d="M4 4.5v5h5"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 3.5h11l3.5 3.5v13.5H5z"/><path d="M8 3.5V9h7V3.5M8 20.5v-6h8v6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14.5 14.5 0 010 18M12 3a14.5 14.5 0 000 18"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="brand">
+    <canvas id="brandIcon" width="64" height="64"></canvas>
+    <div class="brand-text">
+      <h1>该影 <span>icon</span></h1>
+      <small data-i18n="app.tagline">免注册 · 纯浏览器 · 14+ 平台</small>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button class="btn ghost" id="btnHistory" data-i18n-title="top.history"><svg class="ic"><use href="#i-history"/></svg><span data-i18n="top.history">历史</span></button>
+    <button class="btn ghost" id="btnRandom" data-i18n-title="top.random"><svg class="ic"><use href="#i-dice"/></svg><span data-i18n="top.random">随机</span></button>
+    <button class="btn ghost" id="btnShare" data-i18n-title="top.share"><svg class="ic"><use href="#i-link"/></svg><span data-i18n="top.share">分享</span></button>
+    <button class="btn ghost icon-only" id="btnLang" data-i18n-title="top.lang.title"><svg class="ic"><use href="#i-globe"/></svg><span id="langLabel">EN</span></button>
+    <button class="btn ghost icon-only" id="btnTheme" data-i18n-title="top.theme.title"><svg class="ic"><use href="#i-moon"/></svg></button>
+    <button class="btn ghost icon-only" id="btnHelp" data-i18n-title="top.help.title">?</button>
+    <button class="btn primary" id="btnDownload"><svg class="ic"><use href="#i-down"/></svg><span data-i18n="top.download">下载</span></button>
+  </div>
+</header>
+
+<main class="layout">
+<!-- ════════ 左侧控制面板 ════════ -->
+<aside class="panel left" id="leftPanel">
+
+  <details class="acc" open data-acc="source">
+    <summary><i class="dot d1"></i><span data-i18n="acc.source">图标形状</span></summary>
+    <div class="acc-body">
+      <div class="source-picker" id="sourceSeg">
+        <div class="seg source-main">
+          <button type="button" data-source-v="clipart" class="active" data-i18n="src.clipart">图形</button>
+          <button type="button" data-source-v="text" data-i18n="src.text">文本</button>
+          <div class="source-more-wrap">
+            <button type="button" class="source-more-btn" id="sourceMoreBtn" aria-haspopup="menu" aria-expanded="false" data-i18n-title="src.more.title"><span id="sourceMoreLabel">...</span></button>
+            <div class="source-menu" id="sourceMoreMenu" role="menu" hidden>
+              <button type="button" data-source-v="brand" data-i18n="src.brand" role="menuitem">Logo</button>
+              <button type="button" data-source-v="image" data-i18n="src.image" role="menuitem">图片</button>
+              <button type="button" data-source-v="emoji" data-i18n="src.emoji" role="menuitem">Emoji</button>
+              <button type="button" data-source-v="svg" data-i18n="src.svg" role="menuitem">SVG</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="src-page" data-src="clipart">
+        <input type="search" id="clipSearch" class="input" data-i18n-ph="clip.search.ph" placeholder="搜索 2w+ 图标或符号（支持中文）…">
+        <div class="clip-grid" id="clipGrid"></div>
+        <div class="net-hint" id="clipNetHint" hidden data-i18n="clip.nethint">在线搜索不可用，已展示内置图标库</div>
+      </div>
+
+      <div class="src-page" data-src="emoji" hidden>
+        <input type="search" id="emojiSearch" class="input" data-i18n-ph="emoji.search.ph" placeholder="搜索 Emoji…">
+        <div class="chip-row" id="emojiCats"></div>
+        <div class="clip-grid emoji" id="emojiGrid"></div>
+      </div>
+
+      <div class="src-page" data-src="text" hidden>
+        <div class="field"><label><span data-i18n="text.content">文字内容</span> <small data-i18n="text.multiline">支持换行</small></label>
+          <textarea id="textValue" class="input" rows="2" maxlength="20" data-i18n-ph="text.ph" placeholder="如：App、Go、智">A</textarea></div>
+        <div class="field"><label data-i18n="text.font">字体</label><select id="textFont" class="input"></select></div>
+        <div class="field-row">
+          <input type="text" id="gfontName" class="input" data-i18n-ph="gfont.ph" placeholder="加载任意 Google 字体名…">
+          <button class="btn ghost small" id="gfontLoad" data-i18n="gfont.load">加载</button>
+        </div>
+        <div class="field"><label data-i18n="text.weight">字重</label><div class="seg small" id="textWeightSeg">
+          <button data-v="400">400</button><button data-v="500">500</button><button data-v="700">700</button>
+          <button data-v="800" class="active">800</button><button data-v="900">900</button></div></div>
+        <div class="field-row">
+          <div class="field"><label><span data-i18n="text.ls">字距</span> <output>0</output></label><input type="range" id="textLs" min="-10" max="20" value="0"></div>
+          <div class="field"><label><span data-i18n="text.lh">行高</span> <output>1.1</output></label><input type="range" id="textLh" min="80" max="160" value="110"></div>
+        </div>
+        <div class="field"><label data-i18n="text.curve">文字变形</label><div class="seg small" id="textCurveSeg">
+          <button data-v="none" class="active" data-i18n="curve.none">无</button><button data-v="arc-up" data-i18n="curve.up">上弧</button><button data-v="arc-down" data-i18n="curve.down">下弧</button></div></div>
+        <div class="field" id="curveAmtField" hidden><label><span data-i18n="text.curveamt">弧度</span> <output>30°</output></label>
+          <input type="range" id="textCurve" min="5" max="80" value="30"></div>
+      </div>
+
+      <div class="src-page" data-src="image" hidden>
+        <div class="drop" id="dropZone"><input type="file" id="fileInput" accept="image/*" hidden>
+          <p><b data-i18n="img.drop.title">点击上传</b> <span data-i18n="img.drop.sub">或拖拽图片到此处</span></p>
+          <small data-i18n="img.drop.hint">PNG / JPG / SVG / WebP，建议透明背景</small></div>
+        <div class="field-row">
+          <input type="url" id="imgUrl" class="input" data-i18n-ph="img.url.ph" placeholder="或输入图片 URL…">
+          <button class="btn ghost small" id="imgUrlLoad" data-i18n="img.load">加载</button>
+        </div>
+        <div id="imageTools" hidden>
+          <div class="field"><label data-i18n="img.recolor">重新着色</label><div class="seg small" id="imgModeSeg">
+            <button data-v="original" class="active" data-i18n="img.original">原图</button><button data-v="tint" data-i18n="img.tint">单色化</button></div></div>
+          <button class="btn ghost small" id="imgRemove" data-i18n="img.remove">移除图片</button>
+        </div>
+      </div>
+
+      <div class="src-page" data-src="brand" hidden>
+        <input type="search" id="brandSearch" class="input" data-i18n-ph="brand.search.ph" placeholder="搜索 3,000+ 品牌 Logo（在线）…">
+        <div class="clip-grid" id="brandGrid"></div>
+        <div class="net-hint" id="brandNetHint" hidden data-i18n="brand.nethint">品牌库需要网络连接</div>
+      </div>
+
+      <div class="src-page" data-src="svg" hidden>
+        <div class="field"><label data-i18n="svg.paste">粘贴 SVG 代码</label>
+          <textarea id="svgCode" class="input mono" rows="5" placeholder="&lt;svg&gt;…&lt;/svg&gt;"></textarea></div>
+        <button class="btn ghost small" id="svgApply" data-i18n="svg.apply">解析并应用</button>
+      </div>
+
+      <hr class="sep">
+      <div class="field"><label data-i18n="tint.label">图标颜色</label><div class="seg small" id="tintSeg">
+        <button data-v="solid" class="active" data-i18n="tint.solid">单色</button>
+        <button data-v="gradient" data-i18n="tint.gradient">渐变</button></div></div>
+      <div class="color-row" id="tintRow">
+        <input type="color" id="tintColor" value="#ffffff">
+        <input type="color" id="tintColor2" value="#ffd166" hidden>
+        <span class="swatches" data-target="tintColor"></span>
+      </div>
+
+      <hr class="sep">
+      <div class="field"><label data-i18n="adjust.label">图像调整</label></div>
+      <div class="field"><label><span data-i18n="adjust.brightness">亮度</span> <output>100%</output></label>
+        <input type="range" id="adjBrightness" min="0" max="200" value="100"></div>
+      <div class="field"><label><span data-i18n="adjust.contrast">对比度</span> <output>100%</output></label>
+        <input type="range" id="adjContrast" min="0" max="200" value="100"></div>
+      <div class="field"><label><span data-i18n="adjust.saturation">饱和度</span> <output>100%</output></label>
+        <input type="range" id="adjSaturation" min="0" max="200" value="100"></div>
+      <div class="field-row">
+        <div class="field"><label><span data-i18n="adjust.temperature">色温</span> <output>0</output></label>
+          <input type="range" id="adjTemperature" min="-100" max="100" value="0"></div>
+        <div class="field"><label><span data-i18n="adjust.hue">色调</span> <output>0°</output></label>
+          <input type="range" id="adjHue" min="-180" max="180" value="0"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn ghost small" id="adjReset" data-i18n="adjust.reset">重置调整</button>
+      </div>
+
+      <hr class="sep">
+      <div class="field"><label><span data-i18n="tf.scale">缩放</span> <output>60%</output></label><input type="range" id="fgScale" min="15" max="130" value="60"></div>
+      <div class="field-row">
+        <div class="field"><label><span data-i18n="tf.dx">X 偏移</span> <output>0</output></label><input type="range" id="fgDx" min="-40" max="40" value="0"></div>
+        <div class="field"><label><span data-i18n="tf.dy">Y 偏移</span> <output>0</output></label><input type="range" id="fgDy" min="-40" max="40" value="0"></div>
+      </div>
+      <div class="field"><label><span data-i18n="tf.rot">旋转</span> <output>0°</output></label><input type="range" id="fgRot" min="-180" max="180" value="0"></div>
+      <div class="btn-row">
+        <button class="btn ghost small" data-quick="rot-90">↺ −90°</button>
+        <button class="btn ghost small" data-quick="rot+90">↻ +90°</button>
+        <button class="btn ghost small" data-quick="flip"><span data-i18n="tf.flip">翻转</span></button>
+        <button class="btn ghost small" data-quick="reset-tf" data-i18n="tf.reset">重置</button>
+      </div>
+    </div>
+  </details>
+
+  <details class="acc" data-acc="bg">
+    <summary><i class="dot d2"></i><span data-i18n="acc.bg">背景设计</span></summary>
+    <div class="acc-body">
+      <div class="seg wrap" id="bgTypeSeg">
+        <button data-v="solid" data-i18n="bg.solid">纯色</button><button data-v="linear" class="active" data-i18n="bg.linear">线性</button>
+        <button data-v="radial" data-i18n="bg.radial">径向</button><button data-v="conic" data-i18n="bg.conic">锥形</button>
+        <button data-v="image" data-i18n="bg.image">图片</button><button data-v="none" data-i18n="bg.none">透明</button>
+      </div>
+      <div class="field"><label data-i18n="bg.gradpresets">渐变预设</label><div class="grad-presets" id="gradPresets"></div></div>
+      <div class="field" id="bgC1Field"><label data-i18n="bg.c1">颜色 1</label>
+        <div class="color-row"><input type="color" id="bgColor1" value="#0f766e"><span class="swatches" data-target="bgColor1"></span></div></div>
+      <div class="field" id="bgC2Field"><label data-i18n="bg.c2">颜色 2</label>
+        <div class="color-row"><input type="color" id="bgColor2" value="#f59e0b"><span class="swatches" data-target="bgColor2"></span></div></div>
+      <div class="field" id="bgAngleField"><label><span data-i18n="bg.angle">渐变角度</span> <output>135°</output></label>
+        <input type="range" id="bgAngle" min="0" max="360" value="135"></div>
+      <div class="btn-row">
+        <button class="btn ghost small" id="bgSwap">⇄ <span data-i18n="bg.swap">交换</span></button>
+        <button class="btn ghost small" id="bgRandomGrad" data-i18n="bg.randomgrad">随机配色</button>
+      </div>
+      <div class="field" id="bgImgField" hidden><label data-i18n="bg.image.label">背景图片</label>
+        <div class="drop mini" id="bgDropZone"><input type="file" id="bgFileInput" accept="image/*" hidden><span data-i18n="bg.image.upload">点击上传背景图</span></div></div>
+      <hr class="sep">
+      <div class="field"><label data-i18n="bg.texture">图案纹理叠加</label><div class="texture-grid" id="textureGrid"></div></div>
+      <div class="field-row" id="texOpts">
+        <div class="field"><label><span data-i18n="tex.opacity">强度</span> <output>20%</output></label><input type="range" id="texOpacity" min="4" max="80" value="20"></div>
+        <div class="field"><label><span data-i18n="tex.size">大小</span> <output>12</output></label><input type="range" id="texSize" min="4" max="40" value="12"></div>
+      </div>
+      <div class="field"><label><span data-i18n="bg.noise">噪点</span> <output>0%</output></label><input type="range" id="bgNoise" min="0" max="50" value="0"></div>
+    </div>
+  </details>
+
+  <details class="acc" data-acc="presets">
+    <summary><i class="dot d6"></i><span data-i18n="acc.presets">设计模板</span></summary>
+    <div class="acc-body"><div class="preset-grid" id="presetGrid"></div></div>
+  </details>
+
+  <details class="acc advanced-shell" data-acc="advanced">
+    <summary><i class="dot d4"></i><span data-i18n="acc.advanced">高级</span></summary>
+    <div class="acc-body advanced-body">
+  <details class="mini-acc" data-acc="mask">
+    <summary><i class="dot d3"></i><span data-i18n="acc.mask">形状蒙版</span></summary>
+    <div class="acc-body">
+      <div class="shape-grid" id="shapeGrid"></div>
+      <div class="field" id="radiusField"><label><span data-i18n="mask.radius">圆角半径</span> <output>22%</output></label>
+        <input type="range" id="maskRadius" min="0" max="50" value="22"></div>
+      <div class="field"><label><span data-i18n="mask.pad">外边距（透明留白）</span> <output>0%</output></label>
+        <input type="range" id="maskPad" min="0" max="20" value="0"></div>
+      <div class="field"><label><span data-i18n="mask.custom">自定义 SVG 蒙版</span> <small>viewBox 0 0 100 100</small></label>
+        <textarea id="customMask" class="input mono" rows="2" placeholder="M50 0 L100 100 L0 100 Z"></textarea>
+        <button class="btn ghost small" id="customMaskApply" data-i18n="mask.customapply">应用自定义蒙版</button></div>
+      <p class="hint" data-i18n="mask.hint">蒙版作用于 Web / 桌面图标与中央画布；Android 与 iOS 导出按平台规范自动处理。</p>
+    </div>
+  </details>
+
+  <details class="mini-acc" data-acc="fx">
+    <summary><i class="dot d4"></i><span data-i18n="acc.fx">图层特效</span></summary>
+    <div class="acc-body">
+      <div class="field"><label data-i18n="fx.layers">图层可见性</label><div class="btn-row layer-row">
+        <label class="check mini"><input type="checkbox" id="lyFg" checked><span data-i18n="layer.fg">前景</span></label>
+        <label class="check mini"><input type="checkbox" id="lyBg" checked><span data-i18n="layer.bg">背景</span></label>
+        <label class="check mini"><input type="checkbox" id="lyBadge" checked><span data-i18n="layer.badge">徽章</span></label></div></div>
+      <hr class="sep">
+      <div class="field"><label data-i18n="fx.shadow">阴影</label><div class="seg" id="shadowSeg">
+        <button data-v="none" data-i18n="sh.none">无</button><button data-v="soft" class="active" data-i18n="sh.soft">柔和</button>
+        <button data-v="hard" data-i18n="sh.hard">硬边</button><button data-v="long" data-i18n="sh.long">长投影</button></div></div>
+      <div id="shadowOpts">
+        <div class="field-row">
+          <div class="field"><label>X <output>0</output></label><input type="range" id="shX" min="-30" max="30" value="0"></div>
+          <div class="field"><label>Y <output>4</output></label><input type="range" id="shY" min="-30" max="30" value="4"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label><span data-i18n="sh.blur">模糊</span> <output>10</output></label><input type="range" id="shBlur" min="0" max="40" value="10"></div>
+          <div class="field"><label><span data-i18n="sh.op">透明度</span> <output>30%</output></label><input type="range" id="shOp" min="5" max="90" value="30"></div>
+        </div>
+        <div class="color-row"><input type="color" id="shColor" value="#000000"></div>
+      </div>
+      <hr class="sep">
+      <div class="field"><label><span data-i18n="fx.stroke">描边</span> <label class="switch"><input type="checkbox" id="strokeOn"><i></i></label></label>
+        <div id="strokeOpts" hidden><div class="field-row">
+          <div class="field"><label><span data-i18n="stroke.w">宽度</span> <output>4</output></label><input type="range" id="strokeW" min="1" max="20" value="4"></div>
+          <div class="field"><label data-i18n="stroke.color">颜色</label><input type="color" id="strokeColor" value="#1e1b4b"></div></div></div></div>
+      <div class="field"><label><span data-i18n="fx.glow">发光</span> <label class="switch"><input type="checkbox" id="glowOn"><i></i></label></label>
+        <div id="glowOpts" hidden><div class="field-row">
+          <div class="field"><label><span data-i18n="glow.str">强度</span> <output>50%</output></label><input type="range" id="glowStr" min="10" max="100" value="50"></div>
+          <div class="field"><label data-i18n="stroke.color">颜色</label><input type="color" id="glowColor" value="#ffffff"></div></div></div></div>
+      <hr class="sep">
+      <div class="field"><label data-i18n="fx.gloss">整体光泽</label><div class="seg small" id="glossSeg">
+        <button data-v="none" class="active" data-i18n="gloss.none">无</button>
+        <button data-v="top" data-i18n="gloss.top">顶部高光</button>
+        <button data-v="diag" data-i18n="gloss.diag">斜面光</button></div></div>
+      <div class="field"><label><span data-i18n="fx.border">内边框细线</span> <label class="switch"><input type="checkbox" id="innerBorder"><i></i></label></label></div>
+    </div>
+  </details>
+
+  <details class="mini-acc" data-acc="badge">
+    <summary><i class="dot d5"></i><span data-i18n="acc.badge">徽章 / 角标</span></summary>
+    <div class="acc-body">
+      <div class="field"><label><span data-i18n="badge.enable">启用徽章</span> <label class="switch"><input type="checkbox" id="badgeOn"><i></i></label></label></div>
+      <div id="badgeTools" hidden>
+        <div class="field"><label data-i18n="badge.style">样式</label><div class="seg small" id="badgeStyleSeg">
+          <button data-v="ribbon" class="active" data-i18n="badge.ribbon">角标</button>
+          <button data-v="bar" data-i18n="badge.bar">底部横条</button>
+          <button data-v="dot" data-i18n="badge.dot">圆点</button></div></div>
+        <div class="field" id="badgeTextField"><label data-i18n="badge.text">徽章文字</label>
+          <input type="text" id="badgeText" class="input" maxlength="10" value="NEW"></div>
+        <div class="field" id="badgePosField"><label data-i18n="badge.pos">位置</label><div class="pos-grid" id="badgePos">
+          <button data-v="tl">◤</button><button data-v="tr" class="active">◥</button>
+          <button data-v="bl">◣</button><button data-v="br">◢</button></div></div>
+        <div class="field" id="badgeDotTools" hidden><label data-i18n="badge.dotcontent">圆点内容</label>
+          <div class="seg small" id="badgeDotTypeSeg">
+            <button data-v="none" class="active" data-i18n="badge.dcnone">无</button>
+            <button data-v="icon" data-i18n="badge.dcicon">图形</button>
+            <button data-v="emoji" data-i18n="badge.dcemoji">Emoji</button>
+            <button data-v="image" data-i18n="badge.dcimage">图片</button></div>
+          <div id="badgeDotIconTools" hidden>
+            <input type="search" id="badgeDotIconSearch" class="input" data-i18n-ph="clip.search.ph" placeholder="搜索 2w+ 图标或符号（支持中文）…">
+            <div class="clip-grid" id="badgeDotIconGrid"></div>
+            <div class="net-hint" id="badgeDotIconNetHint" hidden data-i18n="clip.nethint">在线搜索不可用，已展示内置图标库</div>
+          </div>
+          <div id="badgeDotEmojiTools" hidden>
+            <input type="search" id="badgeDotEmojiSearch" class="input" data-i18n-ph="emoji.search.ph" placeholder="搜索 Emoji…">
+            <div class="chip-row" id="badgeDotEmojiCats"></div>
+            <div class="clip-grid emoji" id="badgeDotEmojiGrid"></div>
+          </div>
+          <div id="badgeDotImgField" hidden>
+            <div class="drop mini" id="badgeDotDrop"><span data-i18n="badge.dotimg">点击或拖入图片</span></div>
+            <input type="file" id="badgeDotFile" accept="image/*" hidden>
+          </div>
+        </div>
+        <div class="field"><label><span data-i18n="badge.size">大小</span> <output>30%</output></label>
+          <input type="range" id="badgeSize" min="15" max="50" value="30"></div>
+        <div class="field-row" id="badgeOffsetRow">
+          <div class="field"><label><span data-i18n="badge.dx">X 偏移</span> <output>0</output></label>
+            <input type="range" id="badgeDx" min="-40" max="40" value="0"></div>
+          <div class="field"><label><span data-i18n="badge.dy">Y 偏移</span> <output>0</output></label>
+            <input type="range" id="badgeDy" min="-40" max="40" value="0"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label data-i18n="badge.bgc">底色</label><input type="color" id="badgeBg" value="#ef4444"></div>
+          <div class="field"><label data-i18n="badge.fgc">文字色</label><input type="color" id="badgeFg" value="#ffffff"></div>
+        </div>
+      </div>
+    </div>
+  </details>
+    </div>
+  </details>
+</aside>
+
+<!-- ════════ 中央画布 ════════ -->
+<section class="stage" id="centerStage">
+  <div class="stage-toolbar">
+    <div class="seg small" id="stageBgSeg">
+      <button data-v="light" class="active" data-i18n="stage.light">浅色</button>
+      <button data-v="dark" data-i18n="stage.dark">深色</button>
+      <button data-v="grid" data-i18n="stage.grid">棋盘格</button>
+    </div>
+    <span class="contrast-pill" id="contrastPill">—</span>
+  </div>
+  <div class="stage-canvas-wrap" id="stageWrap">
+    <canvas id="stageCanvas" width="1024" height="1024"></canvas>
+  </div>
+  <div class="stage-info" data-i18n="stage.info">1024 × 1024 px · 实时渲染</div>
+  <div class="stage-actions">
+    <button class="btn ghost small" id="btnUndo" title="Ctrl+Z"><svg class="ic"><use href="#i-undo"/></svg><span data-i18n="stage.undo">撤销</span></button>
+    <button class="btn ghost small" id="btnRedo" title="Ctrl+Shift+Z"><svg class="ic"><use href="#i-redo"/></svg><span data-i18n="stage.redo">重做</span></button>
+    <button class="btn ghost small" id="btnReset"><svg class="ic"><use href="#i-reset"/></svg><span data-i18n="stage.reset">重置全部</span></button>
+    <button class="btn ghost small" id="btnSaveHistory" title="Ctrl+S"><svg class="ic"><use href="#i-save"/></svg><span data-i18n="stage.save">存入历史</span></button>
+  </div>
+  <div class="appname-row">
+    <label data-i18n="app.name">应用名称</label>
+    <input type="text" id="appName" class="input" value="My App" maxlength="24">
+  </div>
+</section>
+
+<!-- ════════ 右侧平台预览 ════════ -->
+<aside class="panel right" id="rightPanel">
+  <div class="chip-row pv-filter" id="pvFilter">
+    <button class="chip active" data-v="all" data-i18n="pv.all">全部</button>
+    <button class="chip" data-v="mobile" data-i18n="pv.mobile">移动端</button>
+    <button class="chip" data-v="desktop" data-i18n="pv.desktop">电脑端</button>
+    <button class="chip" data-v="web" data-i18n="pv.web">网页端</button>
+  </div>
+
+  <details class="pv-card" open data-cat="mobile" id="pvAndroid">
+    <summary>Android</summary>
+    <div class="pv-row" id="androidShapes"></div>
+    <div class="pv-row">
+      <div class="pv-item"><div class="themed-wrap"><canvas id="pvThemed" width="120" height="120"></canvas></div><span data-i18n="pv.themed">Android 13 主题图标</span></div>
+      <div class="pv-item"><div class="notif"><canvas id="pvNotif" width="40" height="40"></canvas><div class="notif-lines"><b></b><b class="short"></b></div></div><span data-i18n="pv.notif">通知栏 24dp</span></div>
+    </div>
+  </details>
+
+  <details class="pv-card" open data-cat="mobile" id="pvIosCard">
+    <summary>iOS / iPadOS</summary>
+    <div class="pv-row">
+      <div class="pv-item"><canvas class="pvc ios-shape" id="pvIos" width="120" height="120"></canvas><span data-i18n="pv.appstore">App Store 1024</span></div>
+      <div class="pv-item"><div class="ios-home"><canvas class="pvc ios-shape sm" id="pvIosHome" width="96" height="96"></canvas><em id="iosAppName">My App</em></div><span data-i18n="pv.home">主屏幕</span></div>
+      <div class="pv-item"><canvas class="pvc ios-shape" id="pvIosDark" width="120" height="120"></canvas><span data-i18n="pv.iosdark">iOS 18 深色</span></div>
+    </div>
+  </details>
+
+  <details class="pv-card" open data-cat="web" id="pvWebCard">
+    <summary>Web / PWA</summary>
+    <div class="pv-row">
+      <div class="pv-item"><div class="browser-tab"><canvas id="pvFavicon" width="32" height="32"></canvas><em id="tabTitle">My App</em><i>×</i></div><span data-i18n="pv.favicon">favicon 32</span></div>
+      <div class="pv-item"><canvas class="pvc" id="pvWeb" width="120" height="120"></canvas><span data-i18n="pv.pwa">PWA 512</span></div>
+      <div class="pv-item"><canvas class="pvc circle" id="pvMaskable" width="120" height="120"></canvas><span data-i18n="pv.maskable">Maskable 安全区</span></div>
+    </div>
+    <div class="pv-row"><div class="pv-item wide"><canvas id="pvOg" width="240" height="126"></canvas><span data-i18n="pv.og">OG 社交分享图 1200×630</span></div></div>
+  </details>
+
+  <details class="pv-card" open data-cat="desktop" id="pvDesktopCard">
+    <summary>macOS / Windows</summary>
+    <div class="pv-row">
+      <div class="pv-item"><div class="macos-dock"><canvas id="pvMac" width="110" height="110"></canvas></div><span data-i18n="pv.macdock">macOS Dock</span></div>
+      <div class="pv-item"><canvas class="pvc win" id="pvWin" width="120" height="120"></canvas><span data-i18n="pv.wintile">Windows 磁贴</span></div>
+    </div>
+  </details>
+
+  <details class="pv-card" open data-cat="mobile" id="pvMoreCard">
+    <summary>watchOS / Apple TV</summary>
+    <div class="pv-row">
+      <div class="pv-item"><canvas class="pvc circle" id="pvWatch" width="100" height="100"></canvas><span data-i18n="pv.watch">watchOS</span></div>
+      <div class="pv-item"><div class="apple-tv-preview"><canvas id="pvTv" width="160" height="96"></canvas><em id="tvAppName">My App</em></div><span data-i18n="pv.tv">Apple TV</span></div>
+      <div class="pv-item"><div class="store-card"><canvas id="pvStore" width="56" height="56"></canvas><div class="store-meta"><b id="storeName">My App</b><small data-i18n="pv.free">★★★★★ · 免费</small><button data-i18n="pv.get">获取</button></div></div><span data-i18n="pv.store">商店卡片</span></div>
+    </div>
+  </details>
+</aside>
+</main>
+
+<!-- ════════ 底部导出栏 ════════ -->
+<footer class="export-bar" id="exportBar">
+  <div class="exp-group"><b data-i18n="exp.platform">平台</b>
+    <label class="check mini"><input type="checkbox" data-plat="android" checked><span>Android</span></label>
+    <label class="check mini"><input type="checkbox" data-plat="ios" checked><span>iOS</span></label>
+    <label class="check mini"><input type="checkbox" data-plat="web" checked><span>Web/PWA</span></label>
+    <label class="check mini"><input type="checkbox" data-plat="macos" checked><span>macOS + ICNS</span></label>
+    <label class="check mini"><input type="checkbox" data-plat="windows" checked><span>Windows + ICO</span></label>
+  </div>
+  <div class="exp-group"><b data-i18n="exp.format">格式</b>
+    <label class="check mini"><input type="checkbox" data-fmt="png" checked disabled><span>PNG</span></label>
+    <label class="check mini"><input type="checkbox" data-fmt="webp"><span>WebP</span></label>
+    <label class="check mini"><input type="checkbox" data-fmt="svg"><span>SVG</span></label>
+  </div>
+  <div class="exp-group"><b data-i18n="exp.custom">自定义尺寸</b>
+    <input type="number" id="customSize" class="input tiny" min="8" max="4096" placeholder="512">
+    <button class="btn ghost small" id="addSize">+</button>
+    <span id="customSizes" class="size-chips"></span>
+  </div>
+  <div class="exp-group grow"></div>
+  <div class="exp-group">
+    <button class="btn ghost" id="btnPreviewFiles"><svg class="ic"><use href="#i-eye"/></svg><span data-i18n="exp.files">文件列表</span></button>
+    <button class="btn primary" id="btnExport"><svg class="ic"><use href="#i-down"/></svg><span data-i18n="exp.zip">下载 ZIP 包</span></button>
+  </div>
+</footer>
+
+<!-- 对话框 -->
+<dialog id="dlExport">
+  <h2 data-i18n="dlg.export">导出资源包</h2>
+  <div class="file-tree mono" id="fileTree"></div>
+  <div class="progress" id="expProgress" hidden><div></div><span data-i18n="exp.rendering">正在渲染…</span></div>
+  <div class="dlg-actions"><button class="btn ghost" data-close data-i18n="dlg.close">关闭</button>
+    <button class="btn primary" id="expGo" data-i18n="exp.go">生成并下载 ZIP</button></div>
+</dialog>
+
+<dialog id="dlHistory">
+  <h2 data-i18n="dlg.history">历史记录</h2>
+  <div class="preset-grid history" id="historyGrid"></div>
+  <div class="dlg-actions">
+    <button class="btn ghost small" id="cfgExport" data-i18n="his.cfgexport">导出配置 JSON</button>
+    <button class="btn ghost small" id="cfgImport" data-i18n="his.cfgimport">导入配置 JSON</button>
+    <input type="file" id="cfgFile" accept=".json" hidden>
+    <button class="btn ghost small danger" id="historyClear" data-i18n="his.clear">清空</button>
+    <span class="grow"></span>
+    <button class="btn ghost" data-close data-i18n="dlg.close">关闭</button>
+  </div>
+</dialog>
+
+<dialog id="dlHelp">
+  <h2 data-i18n="dlg.help">快捷键</h2>
+  <table class="kbd-table">
+    <tr><td><kbd>Ctrl/⌘ + Z</kbd></td><td data-i18n="kb.undo">撤销</td><td><kbd>Ctrl/⌘ + Shift + Z</kbd></td><td data-i18n="kb.redo">重做</td></tr>
+    <tr><td><kbd>Ctrl/⌘ + S</kbd></td><td data-i18n="kb.save">存入历史</td><td><kbd>Ctrl/⌘ + E</kbd></td><td data-i18n="kb.export">导出下载</td></tr>
+    <tr><td><kbd>Ctrl/⌘ + H</kbd></td><td data-i18n="kb.history">历史记录</td><td><kbd>R</kbd></td><td data-i18n="kb.random">随机灵感</td></tr>
+    <tr><td><kbd>1 – 6</kbd></td><td data-i18n="kb.panels">切换面板</td><td><kbd>D</kbd></td><td data-i18n="kb.env">深 / 浅画布环境</td></tr>
+  </table>
+  <div class="dlg-actions"><button class="btn ghost" data-close data-i18n="dlg.close">关闭</button></div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/shapes.js"></script>
+<script src="js/state.js"></script>
+<script src="js/render.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/export.js"></script>
+<script src="js/preview.js"></script>
+<script src="js/panels.js"></script>
+<script src="js/exportbar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
