@@ -1,0 +1,9 @@
+# 开发验证脚本与截图（不进开源仓库）
+*-verify.js
+*-shot.js
+dot-shot.js
+shot-*.png
+
+# 系统文件
+Thumbs.db
+.DS_Store
